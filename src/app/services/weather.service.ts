@@ -31,6 +31,14 @@ export class WeatherService {
       });
   }
 
+  /**
+   * The goal is to find the afternoon icon and display it
+   * alongside the title (day) in the nb-accordion. If not,
+   * we will try to find the evening icon for that day.
+   * If we do not have that one either, we would rather try
+   * to get the morning icon instead of showing the night time
+   * weather.
+   */
   processWeather(data: {
     [key: string]: Weather[];
   }): { [key: string]: Weather[] } {
