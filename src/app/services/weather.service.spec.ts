@@ -1,12 +1,10 @@
-import { getTestBed, inject, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing';
 import { WeatherService } from './weather.service';
-import { WEATHER } from '../test/weather';
-// import { Weather } from './weather.service';
-//import { Weather } from '../../assets/weather';
+import { WEATHER } from '../mock-data/weather';
 
 describe('WeatherService', () => {
   let service: WeatherService;
