@@ -1,0 +1,43 @@
+default:
+  image: angular-temp-ci:latest
+
+cache:
+  paths:
+    - ./node_modules/
+
+build-job:
+  stage: build
+  script:
+    - rm ./package-lock.json
+    - rm -rf ./node_modules
+    - npm i
+    - ./node_modules/@angular/cli/bin/ng build
+  artifacts:
+    paths:
+      - ./node_modules/
+
+unit-tests:
+  stage: test
+  script:
+    - rm ./package-lock.json
+    - rm -rf ./node_modules
+    - npm i
+    - ./node_modules/@angular/cli/bin/ng test --watch=false
+  allow_failure: true
+
+e2e-tests:
+  stage: test
+  script:
+    - ./node_modules/@angular/cli/bin/ng e2e
+  allow_failure: true
+
+format-check:
+  stage: test
+  script:
+    - ./node_modules/@angular/cli/bin/ng lint
+  allow_failure: true
+
+deploy-prod:
+  stage: deploy
+  script:
+    - echo "Create suitable deploy script"

@@ -1,0 +1,11 @@
+@import '~@nebular/theme/styles/theming';
+@import '~@nebular/theme/styles/themes/cosmic';
+
+$nb-themes: nb-register-theme(
+  (
+    sidebar-width: 10rem,
+    sidebar-width-compact: 4rem,
+  ),
+  cosmic,
+  cosmic
+);

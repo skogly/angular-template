@@ -1,0 +1,6 @@
+angular-temp:
+  image: 'angular-temp'
+  container_name: angular-temp
+  restart: always
+  ports:
+    - '80:80'

@@ -1,0 +1,53 @@
+<nb-layout>
+  <nb-layout-header fixed>
+    <div class="title-bar">
+      <div class="st" style="margin: auto">
+        <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
+          <nb-icon icon="menu-2-outline"></nb-icon>
+        </a>
+      </div>
+      <div class="tt" style="margin: auto; text-align: center">
+        <h3>Angular</h3>
+      </div>
+      <div
+        *ngIf="!isAuthenticated"
+        class="li"
+        style="margin: auto; margin-right: 0"
+      >
+        <button
+          type="button"
+          style="z-index: 1; width: max-content"
+          nbButton
+          status="info"
+          (click)="openDialog()"
+        >
+          Log In
+        </button>
+      </div>
+      <div
+        *ngIf="isAuthenticated"
+        class="li"
+        style="margin: auto; margin-right: 0"
+      >
+        <button
+          type="button"
+          style="z-index: 1; width: max-content"
+          nbButton
+          status="info"
+          (click)="logOut()"
+        >
+          Log Out
+        </button>
+      </div>
+    </div>
+  </nb-layout-header>
+  <nb-sidebar>
+    <nb-menu [items]="menu"></nb-menu>
+  </nb-sidebar>
+  <nb-layout-column>
+    <nb-card class="card">
+      <router-outlet></router-outlet>
+    </nb-card>
+  </nb-layout-column>
+  <nb-layout-footer></nb-layout-footer>
+</nb-layout>

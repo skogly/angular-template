@@ -1,0 +1,46 @@
+<div class="container">
+  <h3>Weather</h3>
+  <div class="row">
+    <div *ngIf="weather['today']">
+      <div class="weather-layout">
+        <div *ngFor="let day of days">
+          <nb-accordion>
+            <nb-accordion-item>
+              <nb-accordion-item-header>
+                <div class="weather-top-detail-layout">
+                  <h3 class="title">{{ dayFormat(day) }}</h3>
+                  <ng-container *ngFor="let row of weather[day]">
+                    <img
+                      *ngIf="row.useInTitle"
+                      class="img"
+                      style="justify-self: end; width: 70px"
+                      src="assets/weather/{{ row.symbol }}.png"
+                    />
+                  </ng-container>
+                </div>
+              </nb-accordion-item-header>
+              <nb-accordion-item-body>
+                <div
+                  class="weather-detail-layout"
+                  *ngFor="let row of weather[day]"
+                >
+                  <p style="margin-top: auto; margin-bottom: auto">
+                    {{ row.time }}
+                  </p>
+                  <p style="margin-top: auto; margin-bottom: auto">
+                    {{ row.temp }} °C
+                  </p>
+                  <img
+                    class="img"
+                    style="justify-self: end; width: 50px"
+                    src="assets/weather/{{ row.symbol }}.png"
+                  />
+                </div>
+              </nb-accordion-item-body>
+            </nb-accordion-item>
+          </nb-accordion>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

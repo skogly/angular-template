@@ -1,0 +1,35 @@
+.title-bar {
+  display: grid;
+  grid-template-columns: 50px 3fr 1fr;
+  grid-template-areas: 'st tt li';
+  width: 100vw;
+}
+
+.sidebar-toggle {
+  display: block;
+  margin: auto;
+}
+
+.sidebar {
+  grid-area: st;
+}
+
+.title {
+  grid-area: tt;
+  align-items: center;
+}
+
+.login {
+  grid-area: li;
+}
+
+.card {
+  width: 1122px;
+  height: 98%;
+}
+
+@media only screen and (max-width: 1330px) {
+  .card {
+    width: 100%;
+  }
+}
