@@ -18,11 +18,11 @@ Running Angular 11 together with Nebular may give you an empty (white) website a
 
 ## Unit tests
 
-Unit tests are included and use Angular's default test framework [Jasmine](https://jasmine.github.io/) with [Karma test runner](https://karma-runner.github.io/latest/index.html). Run tests by typing `ng test`.
+Unit tests are included and use Angular's default test framework [Jasmine](https://jasmine.github.io/) with [Karma test runner](https://karma-runner.github.io/latest/index.html). Run tests by typing `ng test`. You will need the binary for the ChromeHeadless browser, i.e. Chrome or Chromium, and set `CHROME_BIN`. On Linux, this would normally be `/usr/bin/google-chrome`. The Dockerfile in 'docker-ci' does this automatically and I use this image for unit tests.
 
 ## End-to-end tests
 
-End-to-end tests are executed by `ng e2e` using [Protractor](http://www.protractortest.org/).
+End-to-end tests are executed by `ng e2e` using [Protractor](http://www.protractortest.org/). You will need to download [chromedriver](https://chromedriver.chromium.org/downloads) for the tests to work. Again, this is automatically done in the Dockerfile in 'docker-ci'.
 
 ## Runtime
 
