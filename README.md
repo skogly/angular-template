@@ -12,13 +12,9 @@ In order to run Angular, you will need to install Node.js which also installs th
 
 Clone this repo, navigate to the cloned repo folder and type `npm install` or `npm i`. To take it out for a spin, type `ng serve` and hit the browser on http://localhost:4200. Use `ng serve --host IPADDRESS` to make the application reachable from other devices on the same local network. If you want to run the application through https, create the appropriate .key and .crt files and specify their locations in the `npm start` script in package.json.
 
-## TypeError: this.\_document is undefined or TypeError: Cannot read property 'defaultView' of undefined
-
-Running Angular 11 together with Nebular may give you an empty (white) website after starting the application. There is a missing 'document' parameter in the constructor of NbViewportRulerAdapter as stated [here](https://github.com/akveo/nebular/issues/2572#issuecomment-731615605). This repo includes the patches and should work straight out of the box. If not, you can run `npm run patch-fix` after applying the changes from the link.
-
 ## Unit tests
 
-Unit tests are included and use Angular's default test framework [Jasmine](https://jasmine.github.io/) with [Karma test runner](https://karma-runner.github.io/latest/index.html). Run tests by typing `ng test`. You will need the binary for the ChromeHeadless browser, i.e. Chrome or Chromium, and set `CHROME_BIN`. On Linux, this would normally be `/usr/bin/google-chrome`. The Dockerfile in 'docker-ci' does this automatically and I use this image for unit tests.
+Unit tests are included and use Angular's default test framework [Jasmine](https://jasmine.github.io/) with [Karma test runner](https://karma-runner.github.io/latest/index.html). Run tests by typing `ng test`. You will need the binary for the ChromeHeadless browser, i.e. Chrome or Chromium, and set `CHROME_BIN`. On Linux, this would normally be `/usr/bin/google-chrome`. The Dockerfile in the folder 'docker-ci' does this automatically and I use this image for unit tests.
 
 ## End-to-end tests
 
@@ -26,7 +22,7 @@ End-to-end tests are executed by `ng e2e` using [Protractor](http://www.protract
 
 ## Runtime
 
-The Angular application is meant to be deployed through Nginx inside a Docker container by the command `npm run docker`. This is a script located in package.json and it will build a Docker image, remove dangling images and launch the application in a Docker container by Docker-Compose. Both the Docker image and container will be named 'angular-temp' unless changed in package.json.
+This Angular application is meant to be deployed through Nginx inside a Docker container by the command `npm run docker`. This is a script located in package.json and it will build a Docker image, remove dangling images and launch the application in a Docker container by Docker-Compose. Both the Docker image and container will be named 'angular-temp' unless changed in package.json.
 
 ## GitLab CI/CD
 
